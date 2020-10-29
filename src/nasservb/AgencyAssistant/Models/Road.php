@@ -159,10 +159,22 @@ class Road
         //get list of road contain the city in source , target or through
         $containRoad = [];
         foreach (static::$roads as $road) {
-            if (($road->from == $from || in_array($from, $road->through)) &&
+            if ( ($road->bi_directional == 0) &&
+                ($road->from == $from || in_array($from, $road->through)) &&
                 ($road->to == $to || in_array($to, $road->through))) {
                 $containRoad[$road->calculateTime()] = $road;
             }
+            elseif ( ($road->bi_directional == 1) &&
+                ( ($road->from == $from || in_array($from, $road->through)) &&
+                    ($road->to == $to || in_array($to, $road->through)))
+                ||
+                ( ($road->from ==$to  || in_array($to, $road->through)) &&
+                    ($road->to == $from || in_array($from, $road->through)))
+
+            ) {
+                $containRoad[$road->calculateTime()] = $road;
+            }
+
         }
 
         //sort the list by time

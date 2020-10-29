@@ -15,12 +15,12 @@ class Search
     {
         $path = readline();
         $pathData = explode(':', $path);
-        $fromCity = City::getById($pathData[0]);
-        $toCity = City::getById($pathData[1]);
+        $fromCity = City::getById((int)$pathData[0]);
+        $toCity = City::getById((int)$pathData[1]);
 
         $road = Road::getShortestPath($fromCity->getId(), $toCity->getId());
         echo $fromCity->getName() . ':' . $toCity->getName() . ' via Road ' .
-            $road->getName() . ': Takes ' . $road->calculateTime();
+            $road->getName() . ': Takes ' . $road->calculateTime()."\n";
     }
 
 }

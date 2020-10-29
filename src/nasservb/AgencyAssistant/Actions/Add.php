@@ -24,12 +24,12 @@ class Add
             $to = readline('to=?');
             $throughValue = readline('through=?');
             $throughValue = str_replace(['[', ']'], '',trim( $throughValue));
-            $through = explode($throughValue, ',');
+            $through = explode(',',$throughValue  );
             $speed_limit = readline('speed_limit=?');
             $length = readline('length=?');
             $bi_directional = readline('bi_directional=?');
             $road = new Road($id, $name, $from, $to, $through, $speed_limit, $length, $bi_directional);
-            echo 'Road with id=' . $road->getId() . ' added!';
+            echo 'Road with id=' . $road->getId() .  " added!\n";
 
             echo Menu::getAfterRoadMenu();
             $number = static::readNumber();
@@ -47,7 +47,7 @@ class Add
             $id = static::readNumber('id=?');
             $name = readline('name=?');
             $city = new City($name, $id);
-            echo 'City with id=' . $city->getId() . ' added!';
+            echo 'City with id=' . $city->getId() .  " added!\n";
 
             echo Menu::getAfterCityMenu();
             $number = static::readNumber();
