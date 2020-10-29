@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d13d598-4298-44c2-aa30-b2e32b6295e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/nasservb/AgencyAssistant/Actions/Search.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/nasservb/AgencyAssistant/Actions/Search.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nasservb/AgencyAssistant/Main.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/nasservb/AgencyAssistant/Main.php" afterDir="false" />
-    </list>
+    <list default="true" id="1d13d598-4298-44c2-aa30-b2e32b6295e7" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,7 +33,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604011634189</updated>
-      <workItem from="1604011635290" duration="48000" />
+      <workItem from="1604011635290" duration="373000" />
     </task>
     <servers />
   </component>

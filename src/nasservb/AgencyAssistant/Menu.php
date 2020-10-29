@@ -11,38 +11,39 @@ class Menu
             "2. Add\n" .
             "3. Delete\n" .
             "4. Path\n" .
-            "5. Exit";
+            "5. Exit\n";
     }
 
     public static function getInvalidMenu()
     {
-        return "Invalid input. Please enter 1 for more info.";
+        return "Invalid input. Please enter 1 for more info.\n";
     }
 
     public static function getHelpMenu()
     {
-        return "Select a number from shown menu and enter. For example 1 is for help.";
+        return "Select a number from shown menu and enter. For example 1 is for help.\n";
     }
 
     public static function getModelMenu()
     {
         return "Select model:\n" .
             "1. City\n" .
-            "2. Road";
+            "2. Road\n";
     }
 
     public static function getAfterCityMenu()
     {
         return "Select your next action\n" .
             "1. Add another City\n" .
-            "2. Main Menu";
+            "2. Main Menu\n";
     }
 
     public static function getAfterRoadMenu()
     {
         return "Select your next action\n" .
             "1. Add another Road\n" .
-            "2. Main Menu";
+            "2. Main Menu\n";
     }
+
 
 }
