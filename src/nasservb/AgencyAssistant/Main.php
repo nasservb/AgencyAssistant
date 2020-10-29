@@ -5,19 +5,20 @@ namespace nasservb\AgencyAssistant;
 use nasservb\AgencyAssistant\Actions\Add;
 use nasservb\AgencyAssistant\Actions\Delete;
 use nasservb\AgencyAssistant\Actions\Search;
+use nasservb\AgencyAssistant\Helpers\Input;
 
 class Main
 {
-
+    use Input;
     /**
      * start of application is here !
      */
-    public function Main()
+    public static function Start()
     {
         while (true) {
             echo Menu::getMainMenu();
-            $number = $this->readNumber();
-            $this->processMainMenu($number);
+            $number = static::readNumber();
+            static::processMainMenu($number);
         }
     }
 
@@ -25,7 +26,7 @@ class Main
      * process main menu
      * @param $number
      */
-    public function processMainMenu($number)
+    public static function processMainMenu($number)
     {
         switch ($number) {
             case 1: //help
@@ -33,7 +34,7 @@ class Main
                 break;
             case 2 : //add
                 echo Menu::getModelMenu();
-                $number = $this->readNumber();
+                $number = static::readNumber();
                 if ($number == 1) {
                     Add::addCity();
                 } elseif ($number == 2) {
@@ -44,7 +45,7 @@ class Main
                 break;
             case 3 : //Delete
                 echo Menu::getModelMenu();
-                $number = $this->readNumber();
+                $number = static::readNumber();
                 if ($number == 1) {
                     Delete::deleteCity();
                 } elseif ($number == 2) {
@@ -54,13 +55,12 @@ class Main
                 }
                 break;
             case 4 : //Path
-                Search::Search();
+                Search::processSearch();
                 break;
             case 5:
                 exit(0);
                 break;
         }
     }
-
 
 }

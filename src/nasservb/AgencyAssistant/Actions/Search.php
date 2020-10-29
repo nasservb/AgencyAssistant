@@ -11,7 +11,7 @@ class Search
     /**
      * handle search city to city menu
      */
-    public static function Search()
+    public static function processSearch()
     {
         $path = readline();
         $pathData = explode(':', $path);
