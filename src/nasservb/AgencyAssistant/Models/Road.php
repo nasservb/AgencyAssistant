@@ -107,7 +107,8 @@ class Road
 
         $time = $distance / $speed;
 
-        return gmdate("H:i:s", $time);
+        $s = (int)$time;
+        return sprintf('%d:%02d:%02d', $s/86400, $s/3600%24, $s/60%60);
     }
 
     /**
