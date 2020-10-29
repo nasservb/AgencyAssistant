@@ -21,11 +21,11 @@ class Delete
         if ($city)
         {
             City::deleteById($id);
-            echo 'City:'.$id.' deleted!';
+            echo 'City:'.$id." deleted!\n";
         }
         else
         {
-            echo 'City with id '.$id.' not found!';
+            echo 'City with id '.$id." not found!\n";
         }
     }
 
@@ -40,11 +40,11 @@ class Delete
         if ($road)
         {
             Road::deleteById($id);
-            echo 'Road:'.$id.' deleted!';
+            echo 'Road:'.$id." deleted!\n";
         }
         else
         {
-            echo 'Road with id '.$id.' not found!';
+            echo 'Road with id '.$id." not found!\n";
         }
     }
 
