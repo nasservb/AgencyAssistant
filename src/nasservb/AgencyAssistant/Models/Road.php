@@ -166,8 +166,7 @@ class Road
                 ($road->to == $to || in_array($to, $road->through))) {
                 
                 
-                if (in_array($from, $road->through) &&  in_array($to, $road->through))
-                )
+                if (in_array($from, $road->through) &&  in_array($to, $road->through))                
                 {
                   if (strpos(implode(',',$road->through), $from)< strpos(implode(',',$road->through), $to))
                     $containRoad[$road->calculateTime()] = $road;
