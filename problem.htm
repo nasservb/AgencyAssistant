@@ -13,15 +13,14 @@
 برنامه این‌گونه کار می‌کند که پس از شروع وارد منوی اولیه شامل گزینه‌هایی که کاربر می‌تواند انتخاب کند را به او نشان داده. هر آیتم در این لیست یک شماره دارد که از ۱ شروع می‌شود و به ترتیب ادامه پیدا می‌کند. کاربر شماره دستور را وارد می‌کند. با توجه به انتخاب کاربر نمایش منوهای بعدی صورت می‌گیرد تا اینکه یک عملیات کامل صورت گیرد و سپس به منوی اولیه برمی‌گردیم.
 
 منوی اولیه به صورت زیر است
-
+`
 Main Menu - Select an action:
 1. Help
 2. Add
 3. Delete
 4. Path
 5. Exit
-
-Copy
+`
 
 این دستورات در ادامه توضیح داده خواهد شد. قبل از آن نیز لازم است به توضیح مدل‌های داده‌ای برنامه بپردازیم تا در توضیح دستورات به آن‌ها ارجاع دهیم. هر مدل به همراه ویژگی‌های آن در ادامه توضیح داده شده است.
 
@@ -49,43 +48,37 @@ bi_directional 	0 or 1 - نشان دهنده دوطرفه بودن یا نبود
 
 خروجی:
 
-Invalid input. Please enter 1 for more info.
+`Invalid input. Please enter 1 for more info.`
 
-Copy
 ۱. توضیحات برنامه
 
 1. Help
 
-Copy
 
 منوی بعدی‌ای وجود ندارد.
 
 خروجی:
 
-Select a number from shown menu and enter. For example 1 is for help.
+`Select a number from shown menu and enter. For example 1 is for help.`
 
-Copy
 ۲. اضافه کردن اطلاعات
 
 2. Add
 
-Copy
 
 منوی بعدی:
 
-Select model:
+`Select model:
 1. City
-2. Road
+2. Road`
 
-Copy
 
 کاربر در این مرحله انتخاب می‌کند که چه نوع دیتایی می‌خواهد اضافه کند. یک شهر یا یک جاده.
 
 سپس به ازای هر فیلد موجود در مدل، به ترتیب سطرهای جدول مربوط به مدل در بالا، در یک خط جدا چاپ می‌شود:
 
-<field_name>=?
+`<field_name>=?`
 
-Copy
 
 و کاربر field_value یا همان مقدار فیلد را وارد می‌کند.
 
@@ -93,27 +86,24 @@ Copy
 
 پس از ثبت دیتا با موفقیت منوی بعدی به این صورت است. دقت کنید که Model همان مدلی است که برای اضافه شدن انتخاب شده است و id همان id است که مدل با آن اضافه شده است.
 
-<Model> with id=<id> added!
+`<Model> with id=<id> added!
 Select your next action
 1. Add another <Model>
-2. Main Menu
+2. Main Menu`
 
-Copy
 
 گزینه ۱ ما را به مرحله ورودی گرفتن برای اضافه کردن می‌برد و گزینه ۲ به منوی اصلی می‌رود.
 ۳. حذف کردن اطلاعات
 
 3. Delete
 
-Copy
 
 منوی بعدی:
 
-Select model:
+`Select model:
 1. City
-2. Road
+2. Road`
 
-Copy
 
 کاربر در این مرحله انتخاب می‌کند که چه نوع دیتایی می‌خواهد حذف کند. یک شهر یا یک جاده.
 
@@ -121,36 +111,30 @@ Copy
 
 در صورت پیدا شدن و حذف باید پیغام زیر چاپ شود. Model و id طبق ورودی‌های کاربر مقداردهی می‌شود.
 
-<Model>:<id> deleted!
-
-Copy
+`<Model>:<id> deleted!`
 
 وگرنه:
 
-<Model> with id <id> not found!
+`<Model> with id <id> not found!`
 
-Copy
 
 پس از چاپ پیغام وارد منوی اصلی می‌شویم.
 ۴. نمایش دادن مسیر
 
 4. Path
 
-Copy
 
 در صورت انتخاب این گزینه، در مرحله بعد باید یک ورودی به شکل
 
-<SourceCityId>:<DestinationCityId>
+`<SourceCityId>:<DestinationCityId>`
 
-Copy
 
 بدهد که اولی id شهر شروع مسیر و دومی id شهر پایان مسیر است.
 
 باید به عنوان خروجی هر مسیری که از شهر شروع و پایان بگذرد بیاید. دقت کنید این شهرها الزاما شروع و پایان جاده‌ها نیستند و ممکن است در مسیر دو شهر دیگر باشند. دقت کنید مسیرهایی مطلوب هستند که در یک جاده قرار دارند و بدون عوض کردن جاده از مبدا به مقصد می‌رسید. سپس به ترتیب زمان مسیر به ازای هر مسیر یک سطر به صورت زیر چاپ کند:
 
-<SourceCityName>:<DestinationCityName> via Road <RoadName>: Takes <DD:HH:MM>
+`<SourceCityName>:<DestinationCityName> via Road <RoadName>: Takes <DD:HH:MM>`
 
-Copy
 
 که متغیرهای این دستور بدین شکل است:
 
@@ -167,12 +151,10 @@ DD:HH:MM:
 
 5. Exit
 
-Copy
-
 برنامه بسته می‌شود.
 مثال
 ورودی نمونه
-
+`
 1
 2
 1
@@ -201,12 +183,11 @@ T-K
 3
 1
 21
-5
-
-Copy
+5`
+ 
 خروجی نمونه
 
-Main Menu - Select an action:
+`Main Menu - Select an action:
 1. Help
 2. Add
 3. Delete
@@ -283,4 +264,4 @@ Main Menu - Select an action:
 2. Add
 3. Delete
 4. Path
-5. Exit
+5. Exit`
