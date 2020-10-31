@@ -11,7 +11,7 @@ class City
     private $id = 0 ;
 
     /**
-     * City constructor.
+     * CityService constructor.
      * @param string $name
      * @param int $id
      */
@@ -19,7 +19,6 @@ class City
     {
         $this->id = $id;
         $this->name = $name;
-        static::setCity($id, $this);
     }
 
     /**
@@ -48,38 +47,5 @@ class City
     }
 
 
-    /**
-     * store list of cities
-     * @var array
-     */
-    private static $cities =[];
 
-    /**
-     * get city by id
-     * @param int $id
-     * @return String|null
-     */
-    public static function getById(int $id):?City
-    {
-        return static::$cities[$id] ? static::$cities[$id] : null;
-    }
-
-    /**
-     * remove city by id
-     * @param int $id
-     */
-    public static function deleteById(int $id)
-    {
-        unset(static::$cities[$id]);
-    }
-
-
-    /**
-     * @param int $id
-     * @param City $name
-     */
-    public static function setCity(int $id,City $city)
-    {
-        static::$cities[$id] = $city;
-    }
 }

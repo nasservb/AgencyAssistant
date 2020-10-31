@@ -2,6 +2,8 @@
 
 namespace nasservb\AgencyAssistant\Actions;
 
+use nasservb\AgencyAssistant\Services\CityService;
+use nasservb\AgencyAssistant\Services\RoadService;
 use nasservb\AgencyAssistant\Models\City;
 use nasservb\AgencyAssistant\Models\Road;
 use nasservb\AgencyAssistant\Helpers\Input;
@@ -29,7 +31,9 @@ class Add
             $length = readline('length=?');
             $bi_directional = readline('bi_directional=?');
             $road = new Road($id, $name, $from, $to, $through, $speed_limit, $length, $bi_directional);
-            echo 'Road with id=' . $road->getId() .  " added!\n";
+            RoadService::addRoad($road);
+
+            echo 'RoadService with id=' . $road->getId() .  " added!\n";
 
             echo Menu::getAfterRoadMenu();
             $number = static::readNumber();
@@ -47,7 +51,8 @@ class Add
             $id = static::readNumber('id=?');
             $name = readline('name=?');
             $city = new City($name, $id);
-            echo 'City with id=' . $city->getId() .  " added!\n";
+            CityService::addCity( $city);
+            echo 'CityService with id=' . $city->getId() .  " added!\n";
 
             echo Menu::getAfterCityMenu();
             $number = static::readNumber();

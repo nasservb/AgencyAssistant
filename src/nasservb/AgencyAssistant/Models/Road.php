@@ -54,7 +54,7 @@ class Road
     private $bi_directional = true;
 
     /**
-     * Road constructor.
+     * RoadService constructor.
      * @param int $id
      * @param string $name
      * @param int $from
@@ -75,7 +75,6 @@ class Road
         $this->length = $length;
         $this->bi_directional = $bi_directional;
 
-        static::addRoad($this);
     }
 
     /**
@@ -96,6 +95,57 @@ class Road
     }
 
     /**
+     * @return int
+     */
+    public function getFrom()
+    {
+        return $this->from;
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getTo()
+    {
+        return $this->to;
+    }
+
+    /**
+     * @return array
+     */
+    public function getThrough()
+    {
+        return $this->through;
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getSpeedLimit()
+    {
+        return $this->speed_limit;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLength()
+    {
+        return $this->length;
+    }
+
+
+    /**
+     * @return boolean
+     */
+    public function getBiDirectional()
+    {
+        return (bool)$this->bi_directional;
+    }
+
+    /**
      * @return false|string
      */
     public function calculateTime()
@@ -111,91 +161,6 @@ class Road
         return sprintf('%d:%02d:%02d', $s/86400, $s/3600%24, $s/60%60);
     }
 
-    /**
-     *
-     * Static Functions
-     *
-     **/
 
-    /**
-     * store roads by name
-     * @var array $roads
-     */
-    private static $roads = [];
-
-    /**
-     * @param int $id
-     * @return Road|null
-     */
-    public static function getById(int $id): ?Road
-    {
-        return isset(static::$roads[$id]) ? static::$roads[$id] : null;
-    }
-
-    /**
-     * remove city by id
-     * @param int $id
-     */
-    public static function deleteById(int $id)
-    {
-        unset(static::$roads[$id]);
-    }
-
-    /**
-     * add or update road
-     * @param Road $road
-     */
-    public static function addRoad(Road $road)
-    {
-        static::$roads[$road->id] = $road;
-    }
-
-    /**
-     * @param int $from
-     * @param int $to
-     * @return Road|null
-     */
-    public static function getShortestPath(int $from, int $to): ?Road
-    {
-        //get list of road contain the city in source , target or through
-        $containRoad = [];
-       foreach (static::$roads as $road) {
-
-            if ( ($road->bi_directional == 0) &&
-                ($road->from == $from || in_array($from, $road->through)) &&
-                ($road->to == $to || in_array($to, $road->through))) {
-                
-                
-                if (in_array($from, $road->through) &&  in_array($to, $road->through))                
-                {
-                  if (strpos(implode(',',$road->through), $from)< strpos(implode(',',$road->through), $to))
-                    $containRoad[$road->calculateTime()] = $road;
-                }
-                else 
-                {
-                   $containRoad[$road->calculateTime()] = $road;
-                }
-                
-            }
-            elseif ( ($road->bi_directional == 1) &&
-                ( ($road->from == $from || in_array($from, $road->through)) &&
-                ($road->to == $to || in_array($to, $road->through)))
-            ||
-                ( ($road->from ==$to  || in_array($to, $road->through)) &&
-                    ($road->to == $from || in_array($from, $road->through)))
-
-            ) {
-                $containRoad[$road->calculateTime()] = $road;
-            }
-
-        }
-
-        //sort the list by time
-        asort($containRoad);
-
-        //return shortest time
-        $road = reset($containRoad);
-        return $road ? $road : null;
-    }
 
 }

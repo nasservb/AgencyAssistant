@@ -19,7 +19,7 @@ class Search
         $toCity = City::getById((int)$pathData[1]);
 
         $road = Road::getShortestPath($fromCity->getId(), $toCity->getId());
-        echo $fromCity->getName() . ':' . $toCity->getName() . ' via Road ' .
+        echo $fromCity->getName() . ':' . $toCity->getName() . ' via RoadService ' .
             $road->getName() . ': Takes ' . $road->calculateTime()."\n";
     }
 

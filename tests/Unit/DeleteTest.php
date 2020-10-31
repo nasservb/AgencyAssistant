@@ -2,6 +2,8 @@
 
 namespace Tests\Unit;
 
+use nasservb\AgencyAssistant\Services\CityService;
+use nasservb\AgencyAssistant\Services\RoadService;
 use nasservb\AgencyAssistant\Models\City;
 use nasservb\AgencyAssistant\Models\Road;
 use PHPUnit\Framework\TestCase;
@@ -18,17 +20,21 @@ class DeleteTest extends TestCase
         $city3 = new City('Hamedan', 3);
         $city4 = new City('Kerman', 4);
 
-        $this->assertEquals(City::getById(2)->getId(), $city2->getId());
-        City::deleteById(2);
+        CityService::addCity($city1);
+        CityService::addCity($city2);
+        CityService::addCity($city3);
+        CityService::addCity($city4);
 
-        $this->assertEquals(City::getById(2), null);
+        $this->assertEquals(CityService::getById(2)->getId(), $city2->getId());
+        CityService::deleteById(2);
+        $this->assertEquals(CityService::getById(2), null);
 
         $city2 = new City('Qazvin', 2);
-        $this->assertEquals(City::getById(2)->getId(), $city2->getId());
+        CityService::addCity($city2);
+        $this->assertEquals(CityService::getById(2)->getId(), $city2->getId());
 
-        City::deleteById(2);
-
-        $this->assertEquals(City::getById(2), null);
+        CityService::deleteById(2);
+        $this->assertEquals(CityService::getById(2), null);
 
 
     }
@@ -43,6 +49,10 @@ class DeleteTest extends TestCase
         $city2 = new City('Qazvin', 2);
         $city3 = new City('Hamedan', 3);
 
+        CityService::addCity($city1);
+        CityService::addCity($city2);
+        CityService::addCity($city3);
+
         $road1 = new Road(1,
             'west',
             $city1->getId(),
@@ -53,10 +63,12 @@ class DeleteTest extends TestCase
             1
         );
 
-        $this->assertEquals(Road::getById(1)->getId(), $road1->getId());
-        Road::deleteById(1);
+        RoadService::addRoad($road1);
 
-        $this->assertEquals(Road::getById(1), null);
+        $this->assertEquals(RoadService::getById(1)->getId(), $road1->getId());
+        RoadService::deleteById(1);
+
+        $this->assertEquals(RoadService::getById(1), null);
 
     }
 

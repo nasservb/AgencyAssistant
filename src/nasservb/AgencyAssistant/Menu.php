@@ -27,21 +27,21 @@ class Menu
     public static function getModelMenu()
     {
         return "Select model:\n" .
-            "1. City\n" .
-            "2. Road\n";
+            "1. CityService\n" .
+            "2. RoadService\n";
     }
 
     public static function getAfterCityMenu()
     {
         return "Select your next action\n" .
-            "1. Add another City\n" .
+            "1. Add another CityService\n" .
             "2. Main Menu\n";
     }
 
     public static function getAfterRoadMenu()
     {
         return "Select your next action\n" .
-            "1. Add another Road\n" .
+            "1. Add another RoadService\n" .
             "2. Main Menu\n";
     }
 
