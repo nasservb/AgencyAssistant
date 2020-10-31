@@ -11,7 +11,7 @@ class Main
 {
     use Input;
     /**
-     * start of application is here !
+     * start of the application is here !
      */
     public static function Start()
     {
