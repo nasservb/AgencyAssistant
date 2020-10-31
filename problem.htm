@@ -1,0 +1,241 @@
+<div>
+    <div class="ui center aligned fluid container">
+        <h1>کمک به آژانس مسافربری</h1>
+    </div>
+    <br>
+    <div class="description-html" id="description_html-59841"><p dir="auto">نکات:</p>
+<ul dir="auto">
+<li>در این کد نباید (و لازم نیست) از دیتابیس استفاده کنید.</li>
+<li>پس از پایان نوشتن برنامه مورد نظر، با ثبت آن در قسمت زیر، باید برای کسب نمره ۱۰۰ از تست‌‌ها تلاش کنید.</li>
+<li>در این سوال ساختارمندی و کد تمیز (clean code) نیز در کنار کارکرد صحیح برنامه، از اهمیت برخوردار است.</li>
+<li>برای زمان و حافظه انتظار بهترین مرتبه وجود ندارد ولی نباید اردر راه‌حل به گونه‌ای باشد که این محدودیت‌ها باعث کسر نمره شود.</li>
+</ul>
+<p dir="auto">می‌خواهیم برنامه‌ای بنویسیم تا به مدیریت یک آژانس مسافربری برای مدیریت شهرهای مبدا مقصد و مسیرها، سفرها و مسافران کمک کند.</p>
+<p dir="auto">برنامه این‌گونه کار می‌کند که پس از شروع وارد منوی اولیه شامل گزینه‌هایی که کاربر می‌تواند انتخاب کند را به او نشان داده. هر آیتم در این لیست یک شماره دارد که از ۱ شروع می‌شود و به ترتیب ادامه پیدا می‌کند. کاربر شماره دستور را وارد می‌کند. با توجه به انتخاب کاربر نمایش منوهای بعدی صورت می‌گیرد تا اینکه یک عملیات کامل صورت گیرد و سپس به منوی اولیه برمی‌گردیم.</p>
+<p dir="auto">منوی اولیه به صورت زیر است</p>
+<div class="code-toolbar"><pre dir="ltr" class=" language-undefined"><code class=" language-undefined">Main Menu - Select an action:
+1. Help
+2. Add
+3. Delete
+4. Path
+5. Exit</code></pre><div class="toolbar"><div class="toolbar-item"><a>Copy</a></div></div></div><p dir="auto">این دستورات در ادامه توضیح داده خواهد شد. قبل از آن نیز لازم است به توضیح مدل‌های داده‌ای برنامه بپردازیم تا در توضیح دستورات به آن‌ها ارجاع دهیم. هر مدل به همراه ویژگی‌های آن در ادامه توضیح داده شده است.</p>
+<p dir="auto">در پایان مثالی آمده است که سعی شده در آن همه دستورات در بیشتر حالات پوشش داده شود تا از ابهام نوع ورودی گرفتن کاسته شود.</p>
+<h1 dir="auto">مدل City</h1>
+<table dir="auto" class="ui unstackable table">
+<thead>
+<tr>
+<th>field name</th>
+<th>field value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>int - عدد صحیح مثبت</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string - یک رشته متشکل از حروف و اعداد</td>
+</tr>
+</tbody></table>
+<h1 dir="auto">مدل Road</h1>
+<table dir="auto" class="ui unstackable table">
+<thead>
+<tr>
+<th>field name</th>
+<th>field value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>int - عدد صحیح مثبت</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string - یک رشته متشکل از حروف و اعداد</td>
+</tr>
+<tr>
+<td>from</td>
+<td>int - شماره شهر شروع جاده</td>
+</tr>
+<tr>
+<td>to</td>
+<td>int - شماره شهر پایان جاده</td>
+</tr>
+<tr>
+<td>through</td>
+<td>list of int - یک لیست از شماره شهرهایی که در بین مسیر وجود دارد به ترتیب دیده شدن</td>
+</tr>
+<tr>
+<td>speed_limit</td>
+<td>int - محدودیت سرعت</td>
+</tr>
+<tr>
+<td>length</td>
+<td>int - طول مسیر</td>
+</tr>
+<tr>
+<td>bi_directional</td>
+<td>0 or 1 - نشان دهنده دوطرفه بودن یا نبودن مسیر</td>
+</tr>
+</tbody></table>
+<h1 dir="auto">توضیح دستورات</h1>
+<h2 dir="auto">دستور نامعتبر</h2>
+<p dir="auto">ورودی:</p>
+<p dir="auto">هرچیزی غیر از عددهای موجود در منو. ممکن است عدد اعشاری، رشته یا ورودی خالی و ... باشد. این اتفاق تنها ممکن است در منوی اصلی اتفاق بیفتد. پس از این خروجی باید دوباره منوی اصلی چاپ شود.</p>
+<p dir="auto">خروجی:</p>
+<div class="code-toolbar"><pre dir="ltr" class=" language-undefined"><code class=" language-undefined">Invalid input. Please enter 1 for more info.</code></pre><div class="toolbar"><div class="toolbar-item"><a>Copy</a></div></div></div><h2 dir="auto">۱. توضیحات برنامه</h2>
+<div class="code-toolbar"><pre dir="ltr" class=" language-undefined"><code class=" language-undefined">1. Help</code></pre><div class="toolbar"><div class="toolbar-item"><a>Copy</a></div></div></div><p dir="auto">منوی بعدی‌ای وجود ندارد.</p>
+<p dir="auto">خروجی:</p>
+<div class="code-toolbar"><pre dir="ltr" class=" language-undefined"><code class=" language-undefined">Select a number from shown menu and enter. For example 1 is for help.</code></pre><div class="toolbar"><div class="toolbar-item"><a>Copy</a></div></div></div><h2 dir="auto">۲. اضافه کردن اطلاعات</h2>
+<div class="code-toolbar"><pre dir="ltr" class=" language-undefined"><code class=" language-undefined">2. Add</code></pre><div class="toolbar"><div class="toolbar-item"><a>Copy</a></div></div></div><p dir="auto">منوی بعدی:</p>
+<div class="code-toolbar"><pre dir="ltr" class=" language-undefined"><code class=" language-undefined">Select model:
+1. City
+2. Road</code></pre><div class="toolbar"><div class="toolbar-item"><a>Copy</a></div></div></div><p dir="auto">کاربر در این مرحله انتخاب می‌کند که چه نوع دیتایی می‌خواهد اضافه کند. یک شهر یا یک جاده.</p>
+<p dir="auto">سپس به ازای هر فیلد موجود در مدل، به ترتیب سطرهای جدول مربوط به مدل در بالا، در یک خط جدا چاپ می‌شود:</p>
+<div class="code-toolbar"><pre dir="ltr" class=" language-undefined"><code class=" language-undefined">&lt;field_name&gt;=?</code></pre><div class="toolbar"><div class="toolbar-item"><a>Copy</a></div></div></div><p dir="auto">و کاربر field_value یا همان مقدار فیلد را وارد می‌کند.</p>
+<p dir="auto">دقت کنید که برای هر مدل id باید یکتا و غیرتکراری باشد و در صورت تکرار یک id باید دیتای فیلدهای دیگر مربوط به آن داده بازنویسی شود.</p>
+<p dir="auto">پس از ثبت دیتا با موفقیت منوی بعدی به این صورت است. دقت کنید که Model همان مدلی است که برای اضافه شدن انتخاب شده است و id همان id است که مدل با آن اضافه شده است.</p>
+<div class="code-toolbar"><pre dir="ltr" class=" language-undefined"><code class=" language-undefined">&lt;Model&gt; with id=&lt;id&gt; added!
+Select your next action
+1. Add another &lt;Model&gt;
+2. Main Menu</code></pre><div class="toolbar"><div class="toolbar-item"><a>Copy</a></div></div></div><p dir="auto">گزینه ۱ ما را به مرحله ورودی گرفتن برای اضافه کردن می‌برد و گزینه ۲ به منوی اصلی می‌رود.</p>
+<h2 dir="auto">۳. حذف کردن اطلاعات</h2>
+<div class="code-toolbar"><pre dir="ltr" class=" language-undefined"><code class=" language-undefined">3. Delete</code></pre><div class="toolbar"><div class="toolbar-item"><a>Copy</a></div></div></div><p dir="auto">منوی بعدی:</p>
+<div class="code-toolbar"><pre dir="ltr" class=" language-undefined"><code class=" language-undefined">Select model:
+1. City
+2. Road</code></pre><div class="toolbar"><div class="toolbar-item"><a>Copy</a></div></div></div><p dir="auto">کاربر در این مرحله انتخاب می‌کند که چه نوع دیتایی می‌خواهد حذف کند. یک شهر یا یک جاده.</p>
+<p dir="auto">در مرحله بعد کاربر باید id مربوط را وارد کنید.</p>
+<p dir="auto">در صورت پیدا شدن و حذف باید پیغام زیر چاپ شود. Model و id طبق ورودی‌های کاربر مقداردهی می‌شود.</p>
+<div class="code-toolbar"><pre dir="ltr" class=" language-undefined"><code class=" language-undefined">&lt;Model&gt;:&lt;id&gt; deleted!</code></pre><div class="toolbar"><div class="toolbar-item"><a>Copy</a></div></div></div><p dir="auto">وگرنه:</p>
+<div class="code-toolbar"><pre dir="ltr" class=" language-undefined"><code class=" language-undefined">&lt;Model&gt; with id &lt;id&gt; not found!</code></pre><div class="toolbar"><div class="toolbar-item"><a>Copy</a></div></div></div><p dir="auto">پس از چاپ پیغام وارد منوی اصلی می‌شویم.</p>
+<h2 dir="auto">۴. نمایش دادن مسیر</h2>
+<div class="code-toolbar"><pre dir="ltr" class=" language-undefined"><code class=" language-undefined">4. Path</code></pre><div class="toolbar"><div class="toolbar-item"><a>Copy</a></div></div></div><p dir="auto">در صورت انتخاب این گزینه، در مرحله بعد باید یک ورودی به شکل</p>
+<div class="code-toolbar"><pre dir="ltr" class=" language-undefined"><code class=" language-undefined">&lt;SourceCityId&gt;:&lt;DestinationCityId&gt;</code></pre><div class="toolbar"><div class="toolbar-item"><a>Copy</a></div></div></div><p dir="auto">بدهد که اولی id شهر شروع مسیر و دومی id شهر پایان مسیر است.</p>
+<p dir="auto">باید به عنوان خروجی هر مسیری که از شهر شروع و پایان بگذرد بیاید. دقت کنید این شهرها الزاما شروع و پایان جاده‌ها نیستند و ممکن است در مسیر دو شهر دیگر باشند. دقت کنید مسیرهایی مطلوب هستند که در یک جاده قرار دارند و بدون عوض کردن جاده از مبدا به مقصد می‌رسید. سپس به ترتیب زمان مسیر به ازای هر مسیر یک سطر به صورت زیر چاپ کند:</p>
+<div class="code-toolbar"><pre dir="ltr" class=" language-undefined"><code class=" language-undefined">&lt;SourceCityName&gt;:&lt;DestinationCityName&gt; via Road &lt;RoadName&gt;: Takes &lt;DD:HH:MM&gt;</code></pre><div class="toolbar"><div class="toolbar-item"><a>Copy</a></div></div></div><p dir="auto">که متغیرهای این دستور بدین شکل است:</p>
+<p dir="auto">SourceCityName: نام شهر شروع مسیر</p>
+<p dir="auto">DestinationCityName: نام شهر پایان مسیر</p>
+<p dir="auto">RoadName: نام جاده</p>
+<p dir="auto">DD:HH:MM:</p>
+<p dir="auto">با توجه به حداکثر سرعت جاده و با فرض طی مسیر با ان سرعت، زمانی است که طول می‌کشد تا مسیر را بپیماییم. منظور از DD تعداد روز و HH تعداد ساعت و MM تعداد دقیقه‌ای است که طول می‌کشد.</p>
+<h2 dir="auto">۵. خروج از برنامه</h2>
+<div class="code-toolbar"><pre dir="ltr" class=" language-undefined"><code class=" language-undefined">5. Exit</code></pre><div class="toolbar"><div class="toolbar-item"><a>Copy</a></div></div></div><p dir="auto">برنامه بسته می‌شود.</p>
+<h1 dir="auto">مثال</h1>
+<h2 dir="auto">ورودی نمونه</h2>
+<div class="code-toolbar"><pre dir="ltr" class=" language-undefined"><code class=" language-undefined">1
+2
+1
+21
+Tehran
+1
+251
+Qom
+1
+361
+Kashan
+2
+2
+2
+1
+T-K
+21
+361
+[21,251]
+80
+600
+1
+2
+4
+361:251
+3
+1
+21
+5
+</code></pre><div class="toolbar"><div class="toolbar-item"><a>Copy</a></div></div></div><h2 dir="auto">خروجی نمونه</h2>
+<div class="code-toolbar"><pre dir="ltr" class=" language-undefined"><code class=" language-undefined">Main Menu - Select an action:
+1. Help
+2. Add
+3. Delete
+4. Path
+5. Exit
+Select a number from shown menu and enter. For example 1 is for help.
+Main Menu - Select an action:
+1. Help
+2. Add
+3. Delete
+4. Path
+5. Exit
+Select model:
+1. City
+2. Road
+id=?
+name=?
+City with id=21 added!
+Select your next action
+1. Add another City
+2. Main Menu
+id=?
+name=?
+City with id=251 added!
+Select your next action
+1. Add another City
+2. Main Menu
+id=?
+name=?
+City with id=361 added!
+Select your next action
+1. Add another City
+2. Main Menu
+Main Menu - Select an action:
+1. Help
+2. Add
+3. Delete
+4. Path
+5. Exit
+Select model:
+1. City
+2. Road
+id=?
+name=?
+from=?
+to=?
+through=?
+speed_limit=?
+length=?
+bi_directional=?
+Road with id=1 added!
+Select your next action
+1. Add another Road
+2. Main Menu
+Main Menu - Select an action:
+1. Help
+2. Add
+3. Delete
+4. Path
+5. Exit
+Kashan:Qom via Road T-K: Takes 00:07:30
+Main Menu - Select an action:
+1. Help
+2. Add
+3. Delete
+4. Path
+5. Exit
+Select model:
+1. City
+2. Road
+City:21 deleted!
+Main Menu - Select an action:
+1. Help
+2. Add
+3. Delete
+4. Path
+5. Exit</code></pre><div class="toolbar"><div class="toolbar-item"><a>Copy</a></div></div></div><div class="ui large modal" id="img-modal">
+            <i class="close icon"></i>
+            <div class="image content">
+                <img class="image" style="width: 100%" src="">
+            </div>
+            <div class="actions">
+                <div class="ui cancel button">بازگشت</div>
+            </div>
+        </div></div>
+</div>
